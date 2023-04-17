@@ -1,0 +1,68 @@
+Inicio del proyecto
+creacion del proyecto maui 
+prueba de funcionamiento proyecto incicial, sin conflictos //prueba escritorio
+exploracion del proyecto
+
+
+																							//16-04-2023
+planeamiento de arquitectura
+instalacion paquetes
+	communiytoolkit.mvvm
+	sqlite-net-pcl
+	sqlitepclraw.provider.dynamic.cdecl
+	
+se comienza el codigo
+Creacion TestViewModels //carpeta
+creacion TestViewModel.cs que hereda de ObservableViewModel //ObservableViewModel es la clase que usa el toolkit de la arquitectura mvvm para el control
+	aclaracion, adentro del view model, se declaran las propiedades con un decorado [ObservablePropertie] que quiere decir que va a ser observable desde la vista (capitaliza el nombre de la propiedad)
+	las funciones llevan un decorado [RelayCommand] que vincula la vista con la funcion
+	
+
+el constructor recibe como parametro un IFunction function y lo guarda en una variable privada
+la funcion creada en el TestViewModel por algun motivo que no entiendo, llama al metodo de la interfaz, el cual llama al metodo de la clase Function
+
+creo que conviene mas hacer la logica directamente desde el ViewModel
+
+las interfaces se crean en la carpeta Interfaces
+Las clases se crean en la carpeta Servicios
+Las funciones se crearon en Function adentro de Servicios
+
+la interfaz declara los parametros de entrada y de salida de la funcion
+
+el metodo en Function que cree suma un string y un int convertido a string y lo devuelve en un return
+
+
+
+por el lado de la vista 
+tenemos las inyecciones de dependencias que se usan con el "xmlns:algo" //ese algo es un alias de la dependencias
+despues tenemos el x:DataType que lo que hace es tener acceso a los datos y clases desde nuestra vista. O sea referencias
+x:Class es el nombre de la "clase"
+
+luego tenemos el ContentPage.BindingContext que referencia el alias con la clase en el codigo
+
+scrollview si no me equivoco es la vista vertical dividida en "pilas"
+
+
+Luego cree un label, que va a tener un Text="{Binding Text}" //Text es la variable text de la clase TestViewModel la cual fue cambiada por el toolkit a Text 
+luego puse un boton que llame "cambiar texto" el cual llama a la funcion CambiaTextoCommand que originalmente es la funcion CambiaTexto 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
